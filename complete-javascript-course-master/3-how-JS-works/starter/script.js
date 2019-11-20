@@ -1,30 +1,31 @@
  ///////////////////////////////////////
 // Lecture: Hoisting
 
-calculateAge(1996);
+var john = {
+    name : 'John',
+    yearOfBirth : 1995,
+    calcAge: function(){
+        console.log(this);
+        console.log(2019 - this.yearOfBirth);
+        
+        function innerFunction(){
+            console.log(this);
+        }
+        innerFunction();
+    }
+}
+
+john.calcAge();
 
 
-function calculateAge(year){
-    console.log(2019 - year);
+var mike = {
+    name : 'John',
+    yearOfBirth : 1984
 }
 
 
-retirement(1996);
-var retirement = function(year){
-    console.log(65-(2019-year));
-}
-
-retirement(1996);
-
-
-
-
-
-
-
-
-
-
+mike.calcAge = john.calcAge;
+mike.calcAge();
 
 
 ///////////////////////////////////////
